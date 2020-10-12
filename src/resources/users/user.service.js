@@ -1,17 +1,19 @@
 const usersRepo = require('./user.memory.repository');
 
-const getAll = () => usersRepo.getAll();
+const getAll = tableName => usersRepo.getAll(tableName);
 
-const getRecord = id => usersRepo.getRecord(id);
+const getRecord = (tableName, id) => usersRepo.getRecord(tableName, id);
 
-const updateRecord = (id, updatedProperties) => {
-  return usersRepo.updateRecord(id, updatedProperties);
+const updateRecord = (tableName, id, updatedProperties) => {
+  return usersRepo.updateRecord(tableName, id, updatedProperties);
 };
 
-const postRecord = obj => {
-  return usersRepo.postRecord(obj);
+const postRecord = (tableName, obj) => {
+  return usersRepo.postRecord(tableName, obj);
 };
 
-const deleteRecord = id => usersRepo.deleteRecord(id);
+const deleteRecord = (tableName, id) => {
+  return usersRepo.deleteRecord(tableName, id);
+};
 
 module.exports = { getAll, getRecord, updateRecord, postRecord, deleteRecord };
