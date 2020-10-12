@@ -1,6 +1,24 @@
+const DB = require('../../utils/inVirtDB');
+
 const getAll = async () => {
-  // TODO: mock implementation. should be replaced during task development
-  return [];
+  return DB.getAllEntities();
 };
 
-module.exports = { getAll };
+const getRecord = async id => {
+  return DB.getRecord(id);
+};
+
+const updateRecord = async (id, updatedProperties) => {
+  const user = await DB.updateRecord(id, updatedProperties);
+  return user;
+};
+
+const postRecord = async obj => {
+  return await DB.postRecord(obj);
+};
+
+const deleteRecord = async id => {
+  return await DB.deleteRecord(id);
+};
+
+module.exports = { getAll, getRecord, updateRecord, postRecord, deleteRecord };
